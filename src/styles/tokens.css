@@ -201,6 +201,17 @@
   --radius-card:    0;
   --radius-pill:    9999px;   /* swatches & counters only */
 
+  /* Notch — the label block carved out of a product image, with the image
+     curving around it. The two inner joins are concave, which is the whole
+     trick: a floating badge sits on top of a photograph, a notch is part of
+     it.
+
+     This is the one place the system bends its own radius-0 rule, so it is a
+     token rather than a literal. Set --notch-radius to 0 for a crisp
+     rectangular notch that keeps the hard-edged language; the cutout still
+     reads, it just stops being soft. */
+  --notch-radius:   0.5rem;
+
   --hairline:       1px;
 
 

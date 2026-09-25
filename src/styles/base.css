@@ -34,6 +34,11 @@
 
   body {
     margin: 0;
+    /* What a card's notch is filled with. A notch is a hole cut in the
+       photograph, so it must be painted in the ground the card sits on —
+       hard-coding canvas white would leave a white block floating on every
+       tinted band. Each .scheme-* overrides it. */
+    --card-surface: var(--color-canvas);
     background: var(--color-canvas);
     color: var(--color-body);
     font-family: var(--font-sans);
@@ -113,11 +118,11 @@
   .section-b  { padding-bottom: var(--section-y-lg); }
 
   /* ══ COLOUR SCHEMES — [CHA] scheme system, warmed ══ */
-  .scheme-default   { background: var(--color-canvas);    color: var(--color-body); }
-  .scheme-alabaster { background: var(--color-alabaster); color: var(--color-body); }
-  .scheme-bone      { background: var(--color-bone);      color: var(--color-body); }
-  .scheme-clay      { background: var(--color-clay);      color: var(--color-body); }
-  .scheme-dark      { background: var(--color-obsidian);  color: var(--color-on-dark-muted); }
+  .scheme-default   { --card-surface: var(--color-canvas); background: var(--color-canvas);    color: var(--color-body); }
+  .scheme-alabaster { --card-surface: var(--color-alabaster); background: var(--color-alabaster); color: var(--color-body); }
+  .scheme-bone      { --card-surface: var(--color-bone); background: var(--color-bone);      color: var(--color-body); }
+  .scheme-clay      { --card-surface: var(--color-clay); background: var(--color-clay);      color: var(--color-body); }
+  .scheme-dark      { --card-surface: var(--color-obsidian); background: var(--color-obsidian);  color: var(--color-on-dark-muted); }
   .scheme-dark :is(h1,h2,h3,h4,h5,h6) { color: var(--color-on-dark); }
   .scheme-dark .eyebrow { color: var(--color-on-dark-muted); }
   /* The wordmark carries brand green, which is unreadable on the dark ground —

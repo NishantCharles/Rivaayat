@@ -409,7 +409,51 @@
   .product-card:hover .product-card__shot:first-child img,
   .product-card:hover img.product-card__shot:first-child { transform: scale(var(--zoom-media)); }
 
-  .product-card__labels { position: absolute; top: 0.75rem; left: 0.75rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.375rem; z-index: 2; pointer-events: none; }
+  /* ── LABEL NOTCH ───────────────────────────────────────────────────────
+     The block sits flush in the corner in the card's own background, so the
+     image reads as cut away rather than covered. Its inner corner is a
+     normal convex radius; the two points where it meets the image edges get
+     concave corners, painted by the pseudo-elements below.
+
+     Each corner piece is a radius-sized box filled with the card background
+     everywhere except within one radius of its bottom-right — the removed
+     quarter disc is the concave curve, and the image shows through it. Both
+     pieces use the same gradient; only their position differs. */
+  .product-card__labels {
+    position: absolute; top: 0; left: 0; z-index: 2;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem;
+    padding: 0.6rem 0.85rem 0.55rem 0.7rem;
+    background: var(--card-surface, var(--color-canvas));
+    border-bottom-right-radius: var(--notch-radius);
+    pointer-events: none;
+  }
+  .product-card__labels:empty { display: none; }
+  .product-card__labels::before,
+  .product-card__labels::after {
+    content: '';
+    position: absolute;
+    width: var(--notch-radius);
+    height: var(--notch-radius);
+    background: radial-gradient(
+      circle at 100% 100%,
+      transparent calc(var(--notch-radius) - 0.5px),
+      var(--card-surface, var(--color-canvas)) var(--notch-radius)
+    );
+  }
+  .product-card__labels::before { top: 0; left: 100%; }
+  .product-card__labels::after  { top: 100%; left: 0; }
+
+  /* Inside the notch the labels are the card's own micro-type. They no
+     longer carry a box of their own — the notch is the box, and a bordered
+     badge inside it would read as a frame within a frame. */
+  .product-card__labels .badge {
+    border: 0; background: none; padding: 0;
+    font-size: var(--text-2xs);
+    letter-spacing: var(--tracking-eyebrow);
+    color: var(--color-ink-muted);
+  }
+  .product-card__labels .badge-sale { color: var(--color-accent); }
+  .product-card__labels .badge-solid { color: var(--color-ink); }
 
   /* Anything that fades in must also stop intercepting clicks while it is
      invisible, or a transparent control sits over the card swallowing them. */
