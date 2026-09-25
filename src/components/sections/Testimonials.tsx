@@ -14,28 +14,40 @@ const ADVANCE_MS = 8000;
 
 export function Testimonials() {
   const [i, setI] = useState(0);
+  /* Which way the panel should travel. The entering quote comes from the
+     side you are heading towards, so the movement matches the control you
+     pressed instead of always drifting the same way. */
+  const [dir, setDir] = useState<1 | -1>(1);
   const [paused, setPaused] = useState(false);
-  const region = useRef<HTMLDivElement>(null);
   const q = QUOTES[i];
-  const go = (d: number) => setI((n) => (n + d + QUOTES.length) % QUOTES.length);
+
+  const go = (d: 1 | -1) => {
+    setDir(d);
+    setI((n) => (n + d + QUOTES.length) % QUOTES.length);
+  };
+  const jumpTo = (n: number) => {
+    setDir(n > i ? 1 : -1);
+    setI(n);
+  };
+
+  const reduced = useRef(false);
+  useEffect(() => {
+    reduced.current = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }, []);
 
   /* Advances on its own, but stops the moment someone is reading or
-     operating it — an auto-advancing panel that moves under a reader is
-     worse than one that never moves. Honours prefers-reduced-motion by not
-     starting at all, which WCAG 2.2.2 requires for anything auto-updating. */
+     operating it. Honours prefers-reduced-motion by not starting at all,
+     which WCAG 2.2.2 requires of anything auto-updating. */
   useEffect(() => {
-    if (paused) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const t = setInterval(() => setI((n) => (n + 1) % QUOTES.length), ADVANCE_MS);
+    if (paused || reduced.current) return;
+    const t = setInterval(() => go(1), ADVANCE_MS);
     return () => clearInterval(t);
   }, [paused, i]);
 
   return (
     <section className="section-xl scheme-dark">
       <div
-        ref={region}
-        className="container-reading"
-        style={{ textAlign: 'center' }}
+        className="container-content testimonial"
         aria-roledescription="carousel"
         aria-label="What customers wrote back"
         onMouseEnter={() => setPaused(true)}
@@ -47,42 +59,50 @@ export function Testimonials() {
           if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
         }}
       >
-        <p className="eyebrow" style={{ marginBottom: '1.5rem' }}>What people write back</p>
-        <Rating value={5} className="cluster-center" size={15} />
+        {/* Pinned to the edges of the content column, vertically centred on
+            the quote. Below 1000px they fold back under the panel, where
+            there is no longer room beside the text. */}
+        <button className="testimonial__arrow testimonial__arrow--prev icon-btn icon-btn-outlined"
+                onClick={() => go(-1)} aria-label="Previous testimonial">
+          <IconLeft />
+        </button>
+        <button className="testimonial__arrow testimonial__arrow--next icon-btn icon-btn-outlined"
+                onClick={() => go(1)} aria-label="Next testimonial">
+          <IconRight />
+        </button>
 
-        {/* polite, so the quote is announced when it changes on its own */}
-        <div aria-live="polite" aria-atomic="true">
-          <blockquote className="t-h2" style={{ margin: '1.5rem 0 0', color: 'var(--color-on-dark)', fontWeight: 200 }}>
-            {q.text}
-          </blockquote>
-          <p className="eyebrow" style={{ marginTop: '1.75rem', color: 'var(--color-on-dark-muted)' }}>— {q.name}, {q.place}</p>
-        </div>
+        <div className="testimonial__inner">
+          <p className="eyebrow" style={{ marginBottom: '1.5rem' }}>What people write back</p>
+          <Rating value={5} className="cluster-center" size={15} />
 
-        <Link to={q.to} className="eyebrow link-quiet" style={{ display: 'inline-block', marginTop: '1.5rem', color: 'var(--color-on-dark)' }}>{q.label}</Link>
+          {/* key remounts the panel so the entrance animation replays on
+              every change; aria-live announces one that happened on its own */}
+          <div aria-live="polite" aria-atomic="true">
+            <div key={i} className="testimonial__panel" data-dir={dir}>
+              <blockquote className="t-h2 testimonial__quote">{q.text}</blockquote>
+              <p className="eyebrow testimonial__by">— {q.name}, {q.place}</p>
+              <Link to={q.to} className="eyebrow link-quiet testimonial__link">{q.label}</Link>
+            </div>
+          </div>
 
-        <div className="cluster cluster-center" style={{ gap: '0.75rem', marginTop: '2.5rem' }}>
-          <button className="icon-btn icon-btn-outlined" onClick={() => go(-1)} aria-label="Previous testimonial">
-            <IconLeft />
-          </button>
-
-          {/* Dots carry position at a glance; the counter alone made the set
-              look like a single panel with a stray number under it. */}
-          <span className="cluster" style={{ gap: '0.4rem' }}>
-            {QUOTES.map((quote, n) => (
-              <button
-                key={quote.name}
-                onClick={() => setI(n)}
-                className="testimonial-dot"
-                data-on={n === i}
-                aria-label={`Testimonial ${n + 1} of ${QUOTES.length}`}
-                aria-current={n === i}
-              />
-            ))}
-          </span>
-
-          <button className="icon-btn icon-btn-outlined" onClick={() => go(1)} aria-label="Next testimonial">
-            <IconRight />
-          </button>
+          <div className="testimonial__controls">
+            <button className="testimonial__arrow--inline icon-btn icon-btn-outlined"
+                    onClick={() => go(-1)} aria-label="Previous testimonial" tabIndex={-1}>
+              <IconLeft />
+            </button>
+            <span className="cluster" style={{ gap: '0.4rem' }}>
+              {QUOTES.map((quote, n) => (
+                <button key={quote.name} onClick={() => jumpTo(n)}
+                        className="testimonial-dot" data-on={n === i}
+                        aria-label={`Testimonial ${n + 1} of ${QUOTES.length}`}
+                        aria-current={n === i} />
+              ))}
+            </span>
+            <button className="testimonial__arrow--inline icon-btn icon-btn-outlined"
+                    onClick={() => go(1)} aria-label="Next testimonial" tabIndex={-1}>
+              <IconRight />
+            </button>
+          </div>
         </div>
       </div>
     </section>

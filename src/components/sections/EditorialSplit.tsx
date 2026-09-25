@@ -19,7 +19,9 @@ export function EditorialSplit({ image, base, alt = '', eyebrow, title, body, ct
       <div className="container">
         <div className="split">
           <Reveal className={cx('split__media', flip && 'split__media--flip')}>
-            <div className={cx('media media-zoom', tall ? 'media-portrait' : 'media-editorial')}>
+            {/* No media-zoom: this image is not a link, and only controls should
+                  react to the pointer. The band's CTA is the control. */}
+              <div className={cx('media', tall ? 'media-portrait' : 'media-editorial')}>
               {base ? (
                 <picture>
                   <source type="image/webp" srcSet={srcSet(base, 'sections')} sizes={SIZES.half} />
