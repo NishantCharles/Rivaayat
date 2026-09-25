@@ -191,6 +191,41 @@ longer ships as a page on the site.
 
 ---
 
+## Buttons
+
+Outline and rule, not blocks. The weight sits on hover rather than at rest:
+a button shows an edge or a 1px rule until you reach for it, then commits to
+a fill.
+
+| Variant | Shape | For |
+|---|---|---|
+| `primary` | hairline box, fills on hover | the action on a screen |
+| `secondary` | label over a rule, no box | editorial CTA |
+| `ghost` | rule on hover only | a repeated control beside others that already show an edge |
+| `accent` | accent hairline | sale, urgency |
+| `overlay` / `on-dark` | hairline in white / cream | over imagery, on the dark ground |
+| `solid` | filled | **opt-in**, see below |
+
+Two things are deliberate and should survive future edits:
+
+- **44px minimum height on every variant.** Removing a fill must not cost a
+  touch target. WCAG 2.5.8 asks 24px; 44 is what a thumb actually needs.
+- **A visible resting state on all but `ghost`.** A control that only appears
+  on hover cannot be found on a touchscreen, where there is no hover at all.
+
+### The one judgement call
+
+`Add to bag` is currently `primary` — a hairline outline like everything
+else, which is consistent and quiet. Taking weight out of the highest-intent
+control on a shop is a conversion decision, not a styling one, so `solid` is
+kept as an escape hatch:
+
+```tsx
+<Button variant=solid block>Add to bag</Button>
+```
+
+One word per call site. Worth A/B testing before deciding.
+
 ## Accessibility
 
 - Colour: `ink`, `ink-soft`, `ink-muted`, `accent` and body copy all clear WCAG

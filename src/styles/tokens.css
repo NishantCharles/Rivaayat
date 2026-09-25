@@ -133,6 +133,12 @@
      small as those should go — do not drop --text-base below 0.875rem without
      re-flooring them.                                                       */
   --text-base:     0.875rem;                                  /* 14px       */
+  /* Pull-quote sits between display and lead, on its own measure. It is set
+     wider than --width-reading on purpose: reading measure is tuned for
+     paragraphs, and a quote held to it breaks into six short lines that read
+     as a list rather than a sentence. */
+  --text-quote:    clamp(1.5rem, 0.95rem + 2.1vw, 2.625rem);  /* 24 → 42px  */
+  --width-quote:   52rem;                                     /* 832px      */
   --text-lead:     clamp(1rem, 0.95rem + 0.25vw, 1.125rem);   /* 16 → 18px  */
   --text-body:     var(--text-base);                          /* 14px       */
   --text-sm:       calc(var(--text-base) - 0.0625rem);        /* 13px       */

@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import type { ComponentProps, ReactNode } from 'react';
 import { cx } from '@/lib/utils';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'ghost' | 'overlay' | 'on-dark';
+export type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'ghost' | 'overlay' | 'on-dark' | 'solid';
 export type ButtonSize = 'sm' | 'md' | 'lg';
 
 const VARIANT: Record<ButtonVariant, string> = {
   primary: 'btn-primary', secondary: 'btn-secondary', accent: 'btn-accent',
-  ghost: 'btn-ghost', overlay: 'btn-overlay', 'on-dark': 'btn-on-dark',
+  ghost: 'btn-ghost', overlay: 'btn-overlay', 'on-dark': 'btn-on-dark', solid: 'btn-solid',
 };
 const SIZE: Record<ButtonSize, string> = { sm: 'btn-sm', md: '', lg: 'btn-lg' };
 

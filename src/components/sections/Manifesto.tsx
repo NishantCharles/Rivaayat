@@ -5,7 +5,7 @@ import { Reveal } from '@/components/primitives/Reveal';
 export function Manifesto({ quote, attribution, eyebrow }: { quote: string; attribution: string; eyebrow: ReactNode }) {
   return (
     <section className="section-xl scheme-bone">
-      <div className="container-reading" style={{ textAlign: 'center' }}>
+      <div className="container-content" style={{ textAlign: 'center' }}>
         <Reveal>
           <p className="eyebrow" style={{ marginBottom: '2rem' }}>{eyebrow}</p>
           <blockquote className="t-quote" style={{ margin: 0 }}>&ldquo;{quote}&rdquo;</blockquote>
