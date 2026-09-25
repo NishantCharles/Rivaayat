@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ButtonLink } from '@/components/primitives/Button';
 import { heroSlides } from '@/data/hero';
-import { srcSet, fallbackSrc, SIZES } from '@/lib/image';
+import { srcSet, fallbackSrc, asset, SIZES } from '@/lib/image';
 
 /* Hero slideshow — [CHA] eyebrow / light display line / uppercase CTA over
    full-bleed imagery with the [CHA] --image-overlay scrim.
@@ -55,7 +55,7 @@ export function Hero() {
                      el.dataset.fell = '1';
                      el.parentElement?.querySelectorAll('source').forEach((n) => n.remove());
                      el.srcset = '';
-                     el.src = s.fallback;
+                     el.src = asset(s.fallback);
                      el.style.objectPosition = 'center';
                    }} />
             </picture>

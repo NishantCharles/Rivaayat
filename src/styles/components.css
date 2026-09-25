@@ -602,6 +602,7 @@
 
   .nav-link {
     position: relative;
+    white-space: nowrap;   /* never break "New Arrivals" across two lines */
     font-size: var(--text-xs);
     font-weight: 400;
     letter-spacing: var(--tracking-label);
@@ -1036,7 +1037,7 @@
      which the collection toolbar also uses at a different threshold. */
   .show-nav { display: none; }
   .hide-nav { display: inline-flex; }
-  @media (min-width: 1200px) {
+  @media (min-width: 1320px) {
     .show-nav { display: inline-flex; }
     .hide-nav { display: none; }
   }

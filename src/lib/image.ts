@@ -18,7 +18,15 @@ import { IMAGE_WIDTHS } from '@/data/image-manifest';
    than baked into the paths themselves, which keeps the manifest, hero data
    and image roles portable if the deploy target ever changes. */
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
-export const asset = (p: string) => (p.startsWith('/') ? BASE + p : p);
+export const asset = (p: string) => {
+  if (!p.startsWith('/')) return p;
+  /* Idempotent on purpose. A path can pass through here more than once —
+     data prefixes it, then a component prefixes what it was handed — and the
+     result was /Rivaayat/Rivaayat/img/..., which only shows up on the deployed
+     base and never in dev, where BASE is ''. */
+  if (BASE && (p === BASE || p.startsWith(BASE + '/'))) return p;
+  return BASE + p;
+};
 
 export type ImageProfile = 'hero' | 'product' | 'category' | 'journal' | 'sections' | 'default';
 

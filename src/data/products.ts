@@ -1,8 +1,8 @@
 import type { Product, Category, JournalPost } from './types';
 
-import { asset } from '@/lib/image';
-
-const img = (n: string) => asset(`/img/${n}.svg`);
+/* Clean paths. asset() in lib/image.ts applies the deploy base at render,
+   so the catalogue stays portable. */
+const img = (n: string) => `/img/${n}.svg`;
 
 /* Four garment categories. "New Arrivals" and "Custom Orders" also sit in the
    nav, but neither is a category a product belongs to — New Arrivals is a view
