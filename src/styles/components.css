@@ -409,43 +409,69 @@
   .product-card:hover .product-card__shot:first-child img,
   .product-card:hover img.product-card__shot:first-child { transform: scale(var(--zoom-media)); }
 
-  /* ── LABEL NOTCH ───────────────────────────────────────────────────────
-     The block sits flush in the corner in the card's own background, so the
-     image reads as cut away rather than covered. Its inner corner is a
-     normal convex radius; the two points where it meets the image edges get
-     concave corners, painted by the pseudo-elements below.
+  /* ── NOTCH ─────────────────────────────────────────────────────────────
+     A block cut out of a product image rather than laid over it. Used twice
+     on a card — labels top-left, wishlist top-right — so it is a pattern
+     rather than a one-off.
 
-     Each corner piece is a radius-sized box filled with the card background
-     everywhere except within one radius of its bottom-right — the removed
-     quarter disc is the concave curve, and the image shows through it. Both
-     pieces use the same gradient; only their position differs. */
-  .product-card__labels {
-    position: absolute; top: 0; left: 0; z-index: 2;
-    display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem;
-    padding: 0.6rem 0.85rem 0.55rem 0.7rem;
+     The fill is --card-surface, the ground the card is standing on, because
+     a notch is a hole: hard-code a colour and it floats on every tinted
+     band. Each .scheme-* declares it.
+
+     Geometry: the block takes a convex radius on its inner corner, and each
+     point where it meets an image edge gets a radius-sized pseudo-element
+     filled everywhere except within one radius of the corner facing the
+     block. That removed quarter disc is the concave curve, and the image
+     shows through it. The modifiers only mirror which corners are used.
+
+     A notch cannot fade in on hover the way a floating badge can — it is
+     part of the image's shape, so appearing would make the picture jump.
+     Everything in a notch is therefore permanently visible, which also
+     means a touchscreen can reach it.                                     */
+  .notch {
+    position: absolute;
+    z-index: 3;
     background: var(--card-surface, var(--color-canvas));
-    border-bottom-right-radius: var(--notch-radius);
-    pointer-events: none;
   }
-  .product-card__labels:empty { display: none; }
-  .product-card__labels::before,
-  .product-card__labels::after {
+  .notch::before,
+  .notch::after {
     content: '';
     position: absolute;
     width: var(--notch-radius);
     height: var(--notch-radius);
-    background: radial-gradient(
-      circle at 100% 100%,
-      transparent calc(var(--notch-radius) - 0.5px),
-      var(--card-surface, var(--color-canvas)) var(--notch-radius)
-    );
   }
-  .product-card__labels::before { top: 0; left: 100%; }
-  .product-card__labels::after  { top: 100%; left: 0; }
 
-  /* Inside the notch the labels are the card's own micro-type. They no
-     longer carry a box of their own — the notch is the box, and a bordered
-     badge inside it would read as a frame within a frame. */
+  .notch--tl { top: 0; left: 0; border-bottom-right-radius: var(--notch-radius); }
+  .notch--tl::before,
+  .notch--tl::after {
+    background: radial-gradient(circle at 100% 100%,
+      transparent calc(var(--notch-radius) - 0.5px),
+      var(--card-surface, var(--color-canvas)) var(--notch-radius));
+  }
+  .notch--tl::before { top: 0; left: 100%; }
+  .notch--tl::after  { top: 100%; left: 0; }
+
+  .notch--tr { top: 0; right: 0; border-bottom-left-radius: var(--notch-radius); }
+  .notch--tr::before,
+  .notch--tr::after {
+    background: radial-gradient(circle at 0% 100%,
+      transparent calc(var(--notch-radius) - 0.5px),
+      var(--card-surface, var(--color-canvas)) var(--notch-radius));
+  }
+  .notch--tr::before { top: 0; right: 100%; }
+  .notch--tr::after  { top: 100%; right: 0; }
+
+  /* ── use one: labels, top-left ── */
+  .product-card__labels {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem;
+    padding: 0.6rem 0.85rem 0.55rem 0.7rem;
+    pointer-events: none;
+  }
+  .product-card__labels:empty { display: none; }
+
+  /* Inside a notch the labels are the card's own micro-type. They no longer
+     carry a box of their own — the notch is the box, and a bordered badge
+     within it reads as a frame inside a frame. */
   .product-card__labels .badge {
     border: 0; background: none; padding: 0;
     font-size: var(--text-2xs);
@@ -455,12 +481,16 @@
   .product-card__labels .badge-sale { color: var(--color-accent); }
   .product-card__labels .badge-solid { color: var(--color-ink); }
 
-  /* Anything that fades in must also stop intercepting clicks while it is
-     invisible, or a transparent control sits over the card swallowing them. */
-  .product-card__wish { position: absolute; top: 0.75rem; right: 0.75rem; z-index: 3; opacity: 0; pointer-events: none; transition: opacity var(--dur-base) var(--ease-out-quad); }
-  .product-card:hover .product-card__wish,
-  .product-card:focus-within .product-card__wish,
-  .product-card__wish[data-active='true'] { opacity: 1; pointer-events: auto; }
+  /* ── use two: wishlist, top-right ── */
+  .product-card__wish {
+    width: 2.6rem; height: 2.4rem;
+    display: grid; place-items: center;
+    color: var(--color-ink-muted);
+    cursor: pointer;
+    transition: color var(--dur-fast) var(--ease-out-quad);
+  }
+  .product-card__wish:hover { color: var(--color-ink); }
+  .product-card__wish[data-active='true'] { color: var(--color-accent); }
 
   .product-card__quickbuy { position: absolute; left: 0.75rem; right: 0.75rem; bottom: 0.75rem; z-index: 3; opacity: 0; pointer-events: none; transform: translateY(0.5rem); transition: opacity var(--dur-base) var(--ease-out-quad), transform var(--dur-base) var(--ease-out-quad); }
   .product-card:hover .product-card__quickbuy,
@@ -468,9 +498,10 @@
 
   /* Touch devices have no hover: drop quick view entirely and pin the
      wishlist open, rather than leaving either behind an unreachable state. */
+  /* No hover on a touchscreen, so quick view can never be reached there.
+     The wishlist notch is always visible and needs no override. */
   @media (hover: none) {
     .product-card__quickbuy { display: none; }
-    .product-card__wish { opacity: 1; pointer-events: auto; }
   }
 
   .product-card__body { padding-top: 0.875rem; display: flex; flex-direction: column; gap: 0.3rem; }

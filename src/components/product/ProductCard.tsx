@@ -38,7 +38,7 @@ export function ProductCard({ product, onQuickView, showSwatches = true, classNa
           ))}
         </Link>
 
-        <div className="product-card__labels">
+        <div className="notch notch--tl product-card__labels">
           {off > 0 && <span className="badge badge-sale">{off}% off</span>}
           {product.labels.map((l) => (
             <span key={l} className={cx('badge', l === 'archive' ? 'badge-solid' : l === 'sold-out' && 'badge-sold')}>
@@ -47,10 +47,9 @@ export function ProductCard({ product, onQuickView, showSwatches = true, classNa
           ))}
         </div>
 
-        <button type="button" className="product-card__wish icon-btn" data-active={wished}
+        <button type="button" className="notch notch--tr product-card__wish" data-active={wished}
                 onClick={() => toggleWish(product.id)}
-                aria-pressed={wished} aria-label={wished ? `Remove ${product.title} from saved` : `Save ${product.title}`}
-                style={{ background: 'var(--color-canvas)', color: wished ? 'var(--color-accent)' : 'var(--color-ink)' }}>
+                aria-pressed={wished} aria-label={wished ? `Remove ${product.title} from saved` : `Save ${product.title}`}>
           <IconHeart size={17} fill={wished ? 'currentColor' : 'none'} />
         </button>
 
