@@ -409,86 +409,33 @@
   .product-card:hover .product-card__shot:first-child img,
   .product-card:hover img.product-card__shot:first-child { transform: scale(var(--zoom-media)); }
 
-  /* ── NOTCH ─────────────────────────────────────────────────────────────
-     A block cut out of a product image rather than laid over it. Used twice
-     on a card — labels top-left, wishlist top-right — so it is a pattern
-     rather than a one-off.
-
-     The fill is --card-surface, the ground the card is standing on, because
-     a notch is a hole: hard-code a colour and it floats on every tinted
-     band. Each .scheme-* declares it.
-
-     Geometry: the block takes a convex radius on its inner corner, and each
-     point where it meets an image edge gets a radius-sized pseudo-element
-     filled everywhere except within one radius of the corner facing the
-     block. That removed quarter disc is the concave curve, and the image
-     shows through it. The modifiers only mirror which corners are used.
-
-     A notch cannot fade in on hover the way a floating badge can — it is
-     part of the image's shape, so appearing would make the picture jump.
-     Everything in a notch is therefore permanently visible, which also
-     means a touchscreen can reach it.                                     */
-  .notch {
-    position: absolute;
-    z-index: 3;
-    background: var(--card-surface, var(--color-canvas));
-  }
-  .notch::before,
-  .notch::after {
-    content: '';
-    position: absolute;
-    width: var(--notch-radius);
-    height: var(--notch-radius);
-  }
-
-  .notch--tl { top: 0; left: 0; border-bottom-right-radius: var(--notch-radius); }
-  .notch--tl::before,
-  .notch--tl::after {
-    background: radial-gradient(circle at 100% 100%,
-      transparent calc(var(--notch-radius) - 0.5px),
-      var(--card-surface, var(--color-canvas)) var(--notch-radius));
-  }
-  .notch--tl::before { top: 0; left: 100%; }
-  .notch--tl::after  { top: 100%; left: 0; }
-
-  .notch--tr { top: 0; right: 0; border-bottom-left-radius: var(--notch-radius); }
-  .notch--tr::before,
-  .notch--tr::after {
-    background: radial-gradient(circle at 0% 100%,
-      transparent calc(var(--notch-radius) - 0.5px),
-      var(--card-surface, var(--color-canvas)) var(--notch-radius));
-  }
-  .notch--tr::before { top: 0; right: 100%; }
-  .notch--tr::after  { top: 100%; right: 0; }
-
-  /* ── use one: labels, top-left ── */
+  /* Labels and the wishlist float over the image as their own boxes, inset
+     from the corner, each with the chip radius. They sit on the photograph
+     rather than being cut out of it, so they carry their own background and
+     do not care what ground the card is standing on. */
   .product-card__labels {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 0.2rem;
-    padding: 0.6rem 0.85rem 0.55rem 0.7rem;
+    position: absolute; top: 0.75rem; left: 0.75rem; z-index: 2;
+    display: flex; flex-direction: column; align-items: flex-start; gap: 0.375rem;
     pointer-events: none;
   }
-  .product-card__labels:empty { display: none; }
+  .product-card__labels .badge { border-radius: var(--radius-chip); }
 
-  /* Inside a notch the labels are the card's own micro-type. They no longer
-     carry a box of their own — the notch is the box, and a bordered badge
-     within it reads as a frame inside a frame. */
-  .product-card__labels .badge {
-    border: 0; background: none; padding: 0;
-    font-size: var(--text-2xs);
-    letter-spacing: var(--tracking-eyebrow);
-    color: var(--color-ink-muted);
-  }
-  .product-card__labels .badge-sale { color: var(--color-accent); }
-  .product-card__labels .badge-solid { color: var(--color-ink); }
-
-  /* ── use two: wishlist, top-right ── */
+  /* Anything that fades in must also stop intercepting clicks while it is
+     invisible, or a transparent control sits over the card swallowing them. */
   .product-card__wish {
-    width: 2.6rem; height: 2.4rem;
+    position: absolute; top: 0.75rem; right: 0.75rem; z-index: 3;
+    width: 2.25rem; height: 2.25rem;
     display: grid; place-items: center;
-    color: var(--color-ink-muted);
+    background: var(--color-canvas);
+    border-radius: var(--radius-chip);
+    color: var(--color-ink);
     cursor: pointer;
-    transition: color var(--dur-fast) var(--ease-out-quad);
+    opacity: 0; pointer-events: none;
+    transition: opacity var(--dur-base) var(--ease-out-quad), color var(--dur-fast) var(--ease-out-quad);
   }
+  .product-card:hover .product-card__wish,
+  .product-card:focus-within .product-card__wish,
+  .product-card__wish[data-active='true'] { opacity: 1; pointer-events: auto; }
   .product-card__wish:hover { color: var(--color-ink); }
   .product-card__wish[data-active='true'] { color: var(--color-accent); }
 
@@ -498,10 +445,11 @@
 
   /* Touch devices have no hover: drop quick view entirely and pin the
      wishlist open, rather than leaving either behind an unreachable state. */
-  /* No hover on a touchscreen, so quick view can never be reached there.
-     The wishlist notch is always visible and needs no override. */
+  /* Touch devices have no hover: drop quick view entirely and pin the
+     wishlist open, rather than leaving either behind an unreachable state. */
   @media (hover: none) {
     .product-card__quickbuy { display: none; }
+    .product-card__wish { opacity: 1; pointer-events: auto; }
   }
 
   .product-card__body { padding-top: 0.875rem; display: flex; flex-direction: column; gap: 0.3rem; }
