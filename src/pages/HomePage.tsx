@@ -66,7 +66,7 @@ export function HomePage() {
       <CategoryTiles />
 
       <Manifesto
-        eyebrow="Rivaayat — रिवायत — tradition, carried"
+        eyebrow={<>Rivaayat — <span className="deva">रिवायत</span> — tradition, carried</>}
         quote="We believe in two things: that a garment should be worth keeping, and that the person who made it should be able to sign it."
         attribution="Ira Sengupta · Founder, 1974"
       />

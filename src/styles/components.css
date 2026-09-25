@@ -22,6 +22,25 @@
   }
   .eyebrow-accent { color: var(--color-accent); }
 
+  /* Devanagari inside Latin-styled text. The eyebrow tracks at 0.18em, which
+     is fine for Latin capitals and destroys an Indic script: the extra space
+     is inserted between every glyph, so matras detach from the consonants
+     they belong to and the shirorekha — the line joining the letters along
+     the top — is cut into pieces. Reset tracking, give the script a font that
+     actually contains it, and drop the uppercase transform, which does
+     nothing for Devanagari but would apply to any Latin inside the span.
+
+     Use on a <span> around the non-Latin run only, not the whole line. */
+  .deva {
+    font-family: var(--font-deva);
+    letter-spacing: normal;
+    text-transform: none;
+    /* Devanagari sits visually smaller than Latin at the same size, and its
+       ascenders need a touch more room than a tracked-out eyebrow allows. */
+    font-size: 1.12em;
+    line-height: 1;
+  }
+
   /* Display scale — all Calone at 400, differentiated by size + tracking. */
   .t-hero    { font-family: var(--font-display); font-weight: 400; font-synthesis: none; font-size: var(--text-hero);    letter-spacing: var(--tracking-display); line-height: var(--leading-display); color: var(--color-ink); }
   .t-display { font-family: var(--font-display); font-weight: 400; font-synthesis: none; font-size: var(--text-display); letter-spacing: var(--tracking-display); line-height: var(--leading-heading); color: var(--color-ink); }

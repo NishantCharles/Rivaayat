@@ -1,7 +1,8 @@
+import type { ReactNode } from 'react';
 import { Reveal } from '@/components/primitives/Reveal';
 
 /* [CHA] centred brand-quote band (`.majortitle`) — here in the serif voice. */
-export function Manifesto({ quote, attribution, eyebrow }: { quote: string; attribution: string; eyebrow: string }) {
+export function Manifesto({ quote, attribution, eyebrow }: { quote: string; attribution: string; eyebrow: ReactNode }) {
   return (
     <section className="section-xl scheme-bone">
       <div className="container-reading" style={{ textAlign: 'center' }}>
