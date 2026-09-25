@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img">
+  <defs>
+    <linearGradient id="g9" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0" stop-color="#F3E7DA"/><stop offset="1" stop-color="#DEC3AE"/>
+    </linearGradient>
+    <radialGradient id="v9" cx="0.5" cy="0.4" r="0.78">
+      <stop offset="0.45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.16"/>
+    </radialGradient>
+    <pattern id="m9" width="64" height="56" patternUnits="userSpaceOnUse">
+      <g stroke="#9C4A21" stroke-width="2.4" fill="none" opacity="0.42" stroke-linecap="square">
+        <path d="M0 40 L16 16 L32 40 L48 16 L64 40"/>
+        <path d="M0 12 L16 -12 L32 12 L48 -12 L64 12" opacity="0.55"/>
+        <path d="M0 68 L16 44 L32 68 L48 44 L64 68" opacity="0.55"/>
+      </g></pattern>
+  <filter id="n9" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" result="n"/>
+    <feColorMatrix in="n" type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+    <feBlend in2="SourceGraphic" mode="multiply"/>
+  </filter>
+  </defs>
+  <rect width="900" height="1200" fill="#E7DFD2"/>
+  <rect width="900" height="1200" fill="url(#g9)"/>
+  <rect width="900" height="1200" fill="url(#m9)"/>
+  <rect width="900" height="1200" fill="url(#v9)"/>
+  <rect width="900" height="1200" filter="url(#n9)" fill="#E7DFD2" opacity="0.4"/>
+  
+</svg>

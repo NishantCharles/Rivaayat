@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1250" viewBox="0 0 1000 1250" role="img">
+  <defs>
+    <linearGradient id="g36" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0" stop-color="#EDF2F1"/><stop offset="1" stop-color="#4E625E"/>
+    </linearGradient>
+    <radialGradient id="v36" cx="0.5" cy="0.4" r="0.78">
+      <stop offset="0.45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.16"/>
+    </radialGradient>
+    
+    <linearGradient id="d36" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#1A1714" stop-opacity="0.56"/>
+      <stop offset="0.42" stop-color="#1A1714" stop-opacity="0.23"/>
+      <stop offset="1" stop-color="#1A1714" stop-opacity="0.05"/>
+    </linearGradient><pattern id="m36" width="46" height="46" patternUnits="userSpaceOnUse">
+      <g fill="#3F5C58" opacity="0.4">
+        <circle cx="11" cy="11" r="3"/><circle cx="34" cy="23" r="3"/><circle cx="11" cy="34" r="2"/>
+        <circle cx="23" cy="4" r="1.6"/><circle cx="41" cy="41" r="2.4"/><circle cx="4" cy="23" r="1.6"/>
+      </g></pattern>
+  <filter id="n36" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" result="n"/>
+    <feColorMatrix in="n" type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+    <feBlend in2="SourceGraphic" mode="multiply"/>
+  </filter>
+  </defs>
+  <rect width="1000" height="1250" fill="#F2EDE4"/>
+  <rect width="1000" height="1250" fill="url(#g36)"/>
+  <rect width="1000" height="1250" fill="url(#m36)"/>
+  <rect width="1000" height="1250" fill="url(#v36)"/>
+  <rect width="1000" height="1250" filter="url(#n36)" fill="#F2EDE4" opacity="0.4"/>
+  <rect width="1000" height="1250" fill="url(#d36)"/>
+</svg>

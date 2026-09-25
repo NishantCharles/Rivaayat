@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1200" viewBox="0 0 900 1200" role="img">
+  <defs>
+    <linearGradient id="g5" x1="0" y1="0" x2="0.65" y2="1">
+      <stop offset="0" stop-color="#F1E5D8"/><stop offset="1" stop-color="#D9C0AC"/>
+    </linearGradient>
+    <radialGradient id="v5" cx="0.5" cy="0.4" r="0.78">
+      <stop offset="0.45" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity="0.16"/>
+    </radialGradient>
+    <pattern id="m5" width="52" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="52" height="52" fill="none"/>
+      <g stroke="#7E3A18" stroke-width="1.1" fill="none" opacity="0.4">
+        <rect x="6" y="6" width="40" height="40"/><rect x="17" y="17" width="18" height="18"/>
+      </g></pattern>
+  <filter id="n5" x="0" y="0" width="100%" height="100%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" seed="7" result="n"/>
+    <feColorMatrix in="n" type="saturate" values="0"/>
+    <feComponentTransfer><feFuncA type="linear" slope="0.055"/></feComponentTransfer>
+    <feBlend in2="SourceGraphic" mode="multiply"/>
+  </filter>
+  </defs>
+  <rect width="900" height="1200" fill="#E7DFD2"/>
+  <rect width="900" height="1200" fill="url(#g5)"/>
+  <rect width="900" height="1200" fill="url(#m5)"/>
+  <rect width="900" height="1200" fill="url(#v5)"/>
+  <rect width="900" height="1200" filter="url(#n5)" fill="#E7DFD2" opacity="0.4"/>
+  
+</svg>

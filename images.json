@@ -1,0 +1,585 @@
+{
+  "sections/everyday-handloom": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/sections/everyday-handloom-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/sections/everyday-handloom-960.webp"
+      },
+      {
+        "w": 1280,
+        "src": "/sections/everyday-handloom-1280.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/sections/everyday-handloom-1536.webp"
+      }
+    ],
+    "fallback": "/sections/everyday-handloom.jpg",
+    "width": 1536,
+    "height": 1024
+  },
+  "sections/homes1": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/sections/homes1-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/sections/homes1-960.webp"
+      },
+      {
+        "w": 1280,
+        "src": "/sections/homes1-1280.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/sections/homes1-1536.webp"
+      }
+    ],
+    "fallback": "/sections/homes1.jpg",
+    "width": 1536,
+    "height": 1024
+  },
+  "sections/homes2": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/sections/homes2-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/sections/homes2-960.webp"
+      },
+      {
+        "w": 1280,
+        "src": "/sections/homes2-1280.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/sections/homes2-1536.webp"
+      }
+    ],
+    "fallback": "/sections/homes2.jpg",
+    "width": 1536,
+    "height": 1024
+  },
+  "sections/made-to-measure": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/sections/made-to-measure-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/sections/made-to-measure-960.webp"
+      },
+      {
+        "w": 1280,
+        "src": "/sections/made-to-measure-1280.webp"
+      }
+    ],
+    "fallback": "/sections/made-to-measure.jpg",
+    "width": 1448,
+    "height": 1086
+  },
+  "sections/gift-card": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/sections/gift-card-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/sections/gift-card-960.webp"
+      },
+      {
+        "w": 1280,
+        "src": "/sections/gift-card-1280.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/sections/gift-card-1536.webp"
+      }
+    ],
+    "fallback": "/sections/gift-card.jpg",
+    "width": 1536,
+    "height": 1024
+  },
+  "hero/h1-portrait": {
+    "widths": [
+      {
+        "w": 480,
+        "src": "/hero/h1-portrait-480.webp"
+      },
+      {
+        "w": 720,
+        "src": "/hero/h1-portrait-720.webp"
+      },
+      {
+        "w": 960,
+        "src": "/hero/h1-portrait-960.webp"
+      },
+      {
+        "w": 1200,
+        "src": "/hero/h1-portrait-1200.webp"
+      }
+    ],
+    "fallback": "/hero/h1-portrait.jpg",
+    "width": 0,
+    "height": 0
+  },
+  "hero/h1": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/hero/h1-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/hero/h1-960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/hero/h1-1440.webp"
+      }
+    ],
+    "fallback": "/hero/h1.jpg",
+    "width": 1680,
+    "height": 944
+  },
+  "hero/h2-portrait": {
+    "widths": [
+      {
+        "w": 480,
+        "src": "/hero/h2-portrait-480.webp"
+      },
+      {
+        "w": 720,
+        "src": "/hero/h2-portrait-720.webp"
+      },
+      {
+        "w": 960,
+        "src": "/hero/h2-portrait-960.webp"
+      },
+      {
+        "w": 1200,
+        "src": "/hero/h2-portrait-1200.webp"
+      }
+    ],
+    "fallback": "/hero/h2-portrait.jpg",
+    "width": 0,
+    "height": 0
+  },
+  "hero/h2": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/hero/h2-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/hero/h2-960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/hero/h2-1440.webp"
+      }
+    ],
+    "fallback": "/hero/h2.jpg",
+    "width": 1678,
+    "height": 937
+  },
+  "hero/h3-portrait": {
+    "widths": [
+      {
+        "w": 480,
+        "src": "/hero/h3-portrait-480.webp"
+      },
+      {
+        "w": 720,
+        "src": "/hero/h3-portrait-720.webp"
+      },
+      {
+        "w": 960,
+        "src": "/hero/h3-portrait-960.webp"
+      },
+      {
+        "w": 1200,
+        "src": "/hero/h3-portrait-1200.webp"
+      }
+    ],
+    "fallback": "/hero/h3-portrait.jpg",
+    "width": 0,
+    "height": 0
+  },
+  "hero/h3": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/hero/h3-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/hero/h3-960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/hero/h3-1440.webp"
+      }
+    ],
+    "fallback": "/hero/h3.jpg",
+    "width": 1678,
+    "height": 937
+  },
+  "journal/four-months-on-a-loom-in-varanasi": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/journal/four-months-on-a-loom-in-varanasi-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/journal/four-months-on-a-loom-in-varanasi-960.webp"
+      },
+      {
+        "w": 1280,
+        "src": "/journal/four-months-on-a-loom-in-varanasi-1280.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/journal/four-months-on-a-loom-in-varanasi-1536.webp"
+      }
+    ],
+    "fallback": "/journal/four-months-on-a-loom-in-varanasi.jpg",
+    "width": 1536,
+    "height": 1024
+  },
+  "journal/how-to-read-a-jaali-placket": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/journal/how-to-read-a-jaali-placket-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/journal/how-to-read-a-jaali-placket-960.webp"
+      },
+      {
+        "w": 1280,
+        "src": "/journal/how-to-read-a-jaali-placket-1280.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/journal/how-to-read-a-jaali-placket-1536.webp"
+      }
+    ],
+    "fallback": "/journal/how-to-read-a-jaali-placket.jpg",
+    "width": 1536,
+    "height": 1024
+  },
+  "journal/the-case-for-made-to-measure": {
+    "widths": [
+      {
+        "w": 640,
+        "src": "/journal/the-case-for-made-to-measure-640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/journal/the-case-for-made-to-measure-960.webp"
+      },
+      {
+        "w": 1280,
+        "src": "/journal/the-case-for-made-to-measure-1280.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/journal/the-case-for-made-to-measure-1536.webp"
+      }
+    ],
+    "fallback": "/journal/the-case-for-made-to-measure.jpg",
+    "width": 1536,
+    "height": 1024
+  },
+  "product/k1": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/k1-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/k1-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/k1-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/k1-702.webp"
+      }
+    ],
+    "fallback": "/product/k1.jpg",
+    "width": 1678,
+    "height": 937
+  },
+  "product/k2": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/k2-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/k2-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/k2-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/k2-702.webp"
+      },
+      {
+        "w": 900,
+        "src": "/product/k2-900.webp"
+      }
+    ],
+    "fallback": "/product/k2.jpg",
+    "width": 1086,
+    "height": 1448
+  },
+  "product/s1": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/s1-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/s1-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/s1-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/s1-702.webp"
+      }
+    ],
+    "fallback": "/product/s1.jpg",
+    "width": 1678,
+    "height": 937
+  },
+  "product/s2": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/s2-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/s2-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/s2-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/s2-702.webp"
+      },
+      {
+        "w": 900,
+        "src": "/product/s2-900.webp"
+      }
+    ],
+    "fallback": "/product/s2.jpg",
+    "width": 1086,
+    "height": 1448
+  },
+  "product/sk1": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/sk1-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/sk1-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/sk1-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/sk1-702.webp"
+      }
+    ],
+    "fallback": "/product/sk1.jpg",
+    "width": 1672,
+    "height": 941
+  },
+  "product/sk2": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/sk2-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/sk2-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/sk2-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/sk2-702.webp"
+      },
+      {
+        "w": 900,
+        "src": "/product/sk2-900.webp"
+      }
+    ],
+    "fallback": "/product/sk2.jpg",
+    "width": 1086,
+    "height": 1448
+  },
+  "product/sk3": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/sk3-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/sk3-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/sk3-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/sk3-702.webp"
+      },
+      {
+        "w": 900,
+        "src": "/product/sk3-900.webp"
+      }
+    ],
+    "fallback": "/product/sk3.jpg",
+    "width": 1086,
+    "height": 1448
+  },
+  "product/sk4": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/sk4-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/sk4-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/sk4-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/sk4-702.webp"
+      },
+      {
+        "w": 900,
+        "src": "/product/sk4-900.webp"
+      }
+    ],
+    "fallback": "/product/sk4.jpg",
+    "width": 1086,
+    "height": 1448
+  },
+  "product/wc1": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/wc1-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/wc1-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/wc1-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/wc1-702.webp"
+      }
+    ],
+    "fallback": "/product/wc1.jpg",
+    "width": 1678,
+    "height": 937
+  },
+  "product/wc2": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/wc2-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/wc2-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/wc2-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/wc2-702.webp"
+      }
+    ],
+    "fallback": "/product/wc2.jpg",
+    "width": 1680,
+    "height": 944
+  },
+  "product/wc3": {
+    "widths": [
+      {
+        "w": 360,
+        "src": "/product/wc3-360.webp"
+      },
+      {
+        "w": 480,
+        "src": "/product/wc3-480.webp"
+      },
+      {
+        "w": 600,
+        "src": "/product/wc3-600.webp"
+      },
+      {
+        "w": 702,
+        "src": "/product/wc3-702.webp"
+      },
+      {
+        "w": 900,
+        "src": "/product/wc3-900.webp"
+      }
+    ],
+    "fallback": "/product/wc3.jpg",
+    "width": 1086,
+    "height": 1448
+  }
+}

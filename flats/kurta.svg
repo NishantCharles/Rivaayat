@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 860" width="620" height="860"
+     role="img" aria-label="Technical flat of a men's kurta, front view">
+  <title>Kurta — front</title>
+
+  <!-- lining seen behind the collar opening and through the side slits -->
+  <g fill="#F2EDE4" stroke="none">
+    <path d="M303 24 H317 V74 H303 Z"/>
+    <path d="M158 640 C155 692 152 742 151 793 C160 796 171 795 179 791 C176 740 170 690 164 640 Z"/>
+    <path d="M462 640 C465 692 468 742 469 793 C460 796 449 795 441 791 C444 740 450 690 456 640 Z"/>
+  </g>
+
+  <!-- silhouette and collar: the heavy contour -->
+  <g fill="#FFFFFF" stroke="#1A1714" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M262 74
+             C222 77 172 83 130 91
+             C123 97 120 106 119 118
+             C114 232 108 372 104 494
+             C103 502 106 508 113 509
+             L157 512
+             C164 505 167 498 168 489
+             C174 412 181 334 187 268
+             C179 388 166 512 158 640
+             C155 692 152 742 151 793
+             C232 807 388 807 469 793
+             C468 742 465 692 462 640
+             C454 512 441 388 433 268
+             C439 334 446 412 452 489
+             C453 498 456 505 463 512
+             L507 509
+             C514 508 517 502 516 494
+             C512 372 506 232 501 118
+             C500 106 497 97 490 91
+             C448 83 398 77 358 74
+             Q310 88 262 74 Z"/>
+    <path d="M262 74 C257 55 259 39 268 29 C280 26 292 24 304 23 L304 73 Q283 78 262 74 Z"/>
+    <path d="M358 74 C363 55 361 39 352 29 C340 26 328 24 316 23 L316 73 Q337 78 358 74 Z"/>
+  </g>
+
+  <!-- seams and construction lines: lighter, as on a spec sheet -->
+  <g fill="none" stroke="#1A1714" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M187 268 C181 334 174 412 168 489"/>
+    <path d="M433 268 C439 334 446 412 452 489"/>
+    <path d="M113 500 C130 505 146 507 162 506"/>
+    <path d="M507 500 C490 505 474 507 458 506"/>
+    <path d="M164 640 C170 690 176 740 179 791"/>
+    <path d="M456 640 C450 690 444 740 441 791"/>
+    <path d="M268 37 C280 33 292 31 304 30"/>
+    <path d="M352 37 C340 33 328 31 316 30"/>
+    <path d="M262 74 Q310 88 358 74"/>
+    <path d="M294 82 L294 232 Q294 246 310 246 Q326 246 326 232 L326 82"/>
+  </g>
+</svg>
