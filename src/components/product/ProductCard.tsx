@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { Product } from '@/data/types';
 import { Price } from '@/components/primitives/Price';
@@ -22,6 +23,29 @@ export function ProductCard({ product, onQuickView, showSwatches = true, classNa
   const wished = wishlist.includes(product.id);
   const off = discountPct(product.price, product.compareAt);
   const shots = shotsFor(product);
+  /* Drives the save animation. Kept in state rather than derived from
+     `wished`, so it fires on the toggle and not on every mount of an
+     already-saved card.
+
+     Cleared on a timer rather than onAnimationEnd: the animation runs on the
+     svg while the handler sits on the button, and the event did not reach it
+     reliably — leaving data-pulse stuck on and the animation unable to
+     replay. A timer matched to the keyframe duration has no such dependency. */
+  const [pulse, setPulse] = useState(false);
+  const pulseTimer = useRef<number | undefined>(undefined);
+  useEffect(() => () => window.clearTimeout(pulseTimer.current), []);
+
+  const save = () => {
+    toggleWish(product.id);
+    setPulse(false);
+    window.clearTimeout(pulseTimer.current);
+    /* next frame, so removing and re-adding the attribute restarts the
+       animation instead of the browser treating it as unchanged */
+    requestAnimationFrame(() => {
+      setPulse(true);
+      pulseTimer.current = window.setTimeout(() => setPulse(false), 460);
+    });
+  };
 
   return (
     <article className={cx('product-card group', className)}>
@@ -48,9 +72,10 @@ export function ProductCard({ product, onQuickView, showSwatches = true, classNa
         </div>
 
         <button type="button" className="product-card__wish" data-active={wished}
-                onClick={() => toggleWish(product.id)}
+                onClick={save}
+                data-pulse={pulse || undefined}
                 aria-pressed={wished} aria-label={wished ? `Remove ${product.title} from saved` : `Save ${product.title}`}>
-          <IconHeart size={17} fill={wished ? 'currentColor' : 'none'} />
+          <IconHeart size={20} fill={wished ? 'currentColor' : 'none'} />
         </button>
 
         {onQuickView && (
