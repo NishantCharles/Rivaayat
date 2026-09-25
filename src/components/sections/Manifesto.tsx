@@ -8,7 +8,7 @@ export function Manifesto({ quote, attribution, eyebrow }: { quote: string; attr
       <div className="container-content" style={{ textAlign: 'center' }}>
         <Reveal>
           <p className="eyebrow" style={{ marginBottom: '2rem' }}>{eyebrow}</p>
-          <blockquote className="t-quote" style={{ margin: 0 }}>&ldquo;{quote}&rdquo;</blockquote>
+          <blockquote className="t-quote">&ldquo;{quote}&rdquo;</blockquote>
           <p className="eyebrow" style={{ marginTop: '2rem' }}>{attribution}</p>
         </Reveal>
       </div>

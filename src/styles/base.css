@@ -124,5 +124,15 @@
      on this surface it takes the surface's own contrast colour instead. */
   .scheme-dark .wordmark { color: var(--color-on-dark); }
   .scheme-dark .wordmark__sub { color: var(--color-on-dark-muted); }
+
+  /* .icon-btn sets a hard `color: var(--color-ink)`, so it does not inherit
+     the dark scheme's contrast colour — on the obsidian ground the carousel
+     arrows were rendering ink on ink and reading as absent rather than
+     invisible. Any icon button dropped into a dark band had the same fault. */
+  .scheme-dark .icon-btn { color: var(--color-on-dark-muted); }
+  .scheme-dark .icon-btn:hover { color: var(--color-on-dark); }
+  .scheme-dark .icon-btn:disabled { color: var(--color-on-dark-line); }
+  .scheme-dark .icon-btn-outlined { border-color: var(--color-on-dark-line); }
+  .scheme-dark .icon-btn-outlined:hover { border-color: var(--color-on-dark); }
   .scheme-dark hr, .scheme-dark .rule { border-color: var(--color-on-dark-line); }
 }
